@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
-import { GyerekekService } from './gyerekek.service';
-import { GyerekekController } from './gyerekek.controller';
+import { GyerekService } from './gyerekek.service';
+import { GyerekController, } from './gyerekek.controller';
+import { PrismaService } from '../prisma.service';
+
 
 @Module({
-  controllers: [GyerekekController],
-  providers: [GyerekekService],
+  controllers: [GyerekController],
+  providers: [GyerekService],
+  imports:[PrismaService],
 })
 export class GyerekekModule {}
