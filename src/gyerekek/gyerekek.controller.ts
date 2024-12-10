@@ -7,27 +7,27 @@ import { UpdateGyerekekDto } from './dto/update-gyerekek.dto';
 export class GyerekController {
   constructor(private readonly gyerekService: GyerekService) {}
 
-  @Get()
+  @Get('all')
   async findAll() {
     return this.gyerekService.findAll();
   }
 
-  @Get(':id')
+  @Get('keres:id')
   async findOne(@Param('id') id: string) {
     return this.gyerekService.findOne(+id);
   }
 
-  @Post()
+  @Post('létrehoz')
   async create(@Body() createGyerekDto: CreateGyerekekDto) {
     return this.gyerekService.create(createGyerekDto);
   }
 
-  @Put(':id')
+  @Put('update:id')
   async update(@Param('id') id: string, @Body() updateGyerekDto: UpdateGyerekekDto) {
     return this.gyerekService.update(+id, updateGyerekDto);
   }
 
-  @Delete(':id')
+  @Delete('törlés:id')
   async remove(@Param('id') id: string) {
     return this.gyerekService.remove(+id);
   }
